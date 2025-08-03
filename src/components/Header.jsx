@@ -5,7 +5,9 @@ import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState(localStorage.getItem("lang") || "en");
+  const [language, setLanguage] = useState(
+    localStorage.getItem("lang") || "en"
+  );
 
   useEffect(() => {
     if (!localStorage.getItem("langSet")) {
