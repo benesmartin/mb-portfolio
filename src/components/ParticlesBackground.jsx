@@ -31,43 +31,37 @@ const ParticlesBackground = () => {
     () => ({
       background: {
         color: {
-          value: "#000000",
+          value: "#000101",
         },
       },
       fpsLimit: 60,
       particles: {
+        color: { value: ["#fefefe", "#00a8f1"] },
         move: {
+          direction: "none",
           enable: true,
-          speed: { min: 1, max: 6 },
+          outModes: "out",
+          random: false,
+          speed: 2,
+          straight: false,
         },
         number: {
-          value: 20,
-          max: 30,
-        },
-        opacity: {
-          value: 0.4,
-        },
-        rotate: {
-          path: true,
+          density: {
+            enable: true,
+            area: 800,
+          },
+          value: 80,
         },
         shape: {
-          options: {
-            image: {
-              gif: true,
-              height: 100,
-              src: "/logo.png",
-              width: 100,
-            },
-          },
-          type: "image",
+          type: "circle",
         },
         size: {
-          value: {
-            min: 32,
-            max: 64,
-          },
+          value: { min: 1, max: 5 },
         },
         detectRetina: true,
+        opacity: {
+          value: 0.7,
+        },
       },
     }),
     []
