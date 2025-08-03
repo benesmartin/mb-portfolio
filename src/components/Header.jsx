@@ -1,7 +1,32 @@
 import { Moon } from "lucide-react";
+import { useEffect, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState(localStorage.getItem("lang") || "en");
+
+  useEffect(() => {
+    if (!localStorage.getItem("langSet")) {
+      fetch("https://ipapi.co/json/")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.country_code === "CZ") {
+            setLanguage("cs");
+            localStorage.setItem("langSet", "true");
+          }
+        });
+    }
+  }, []);
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+    localStorage.setItem("lang", language);
+  }, [language, i18n]);
+
+  const nextLang = language === "en" ? "cs" : "en";
+  const flagCode = nextLang === "en" ? "GB" : "CZ";
   return (
     <header className="z-10 relative cal-sans-regular mt-4 bg-[#1c1c1c73] p-2 rounded-xl text-white border-2 border-[#1c1c1c]">
       <nav className="flex items-center">
@@ -20,7 +45,7 @@ const Header = () => {
               href="#home"
               className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
             >
-              Home
+              {t("home")}
             </a>
           </li>
           <li>
@@ -28,7 +53,7 @@ const Header = () => {
               href="#about"
               className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
             >
-              About
+              {t("about")}
             </a>
           </li>
           <li>
@@ -36,7 +61,7 @@ const Header = () => {
               href="#skills"
               className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
             >
-              Skills
+              {t("skills")}
             </a>
           </li>
           <li>
@@ -44,7 +69,7 @@ const Header = () => {
               href="#projects"
               className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
             >
-              Projects
+              {t("projects")}
             </a>
           </li>
           <li>
@@ -52,7 +77,7 @@ const Header = () => {
               href="#contact"
               className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
             >
-              Contact
+              {t("contact")}
             </a>
           </li>
         </ul>
@@ -66,9 +91,15 @@ const Header = () => {
             <span className="text-gray-300">|</span>
           </li>
           <li>
-            <button className="w-8 h-8 flex items-center justify-center rounded hover:scale-110 transition-all duration-200 hover:cursor-pointer">
+            <button
+              className="w-8 h-8 flex items-center justify-center rounded hover:scale-110 transition-all duration-200 hover:cursor-pointer"
+              onClick={() => setLanguage(nextLang)}
+              title={
+                nextLang === "en" ? "Switch to English" : "Přepnout do češtiny"
+              }
+            >
               <ReactCountryFlag
-                countryCode="GB"
+                countryCode={flagCode}
                 svg
                 style={{ width: 32, height: 16 }}
               />
