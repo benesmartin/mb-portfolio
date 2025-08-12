@@ -6,5 +6,7 @@
   "contact": "Contact",
   "hero-sub": "Web Developer • Student",
   "view-projects": "View Projects",
-  "download-cv": "Download CV"
+  "download-cv": "Download CV",
+  "about-paragraph": "I'm a frontend-leaning Applied Informatics student who loves building useful websites, polishing UX, and self-hosting projects.",
+  "fun-fact": "My home server is named bebop :D"
 }

@@ -1,3 +1,4 @@
+import About from "./components/About";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import ParticlesBackground from "./components/ParticlesBackground";
@@ -10,6 +11,7 @@ const App = () => {
         <Header />
         <main className="max-w-5xl">
           <Hero />
+          <About />
         </main>
       </div>
     </>
