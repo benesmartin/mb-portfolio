@@ -126,5 +126,8 @@
       "mxMissing": "Domain has no MX records.",
       "missing": "Some required fields are missing."
     }
+  },
+  "footer": {
+    "backToTop": "Back to top"
   }
 }

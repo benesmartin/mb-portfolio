@@ -126,5 +126,8 @@
       }
     },
     "more-on-github": "Více na GitHubu"
+  },
+  "footer": {
+    "backToTop": "Zpět na začátek"
   }
 }
