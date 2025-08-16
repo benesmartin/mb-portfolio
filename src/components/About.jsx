@@ -12,7 +12,7 @@ const About = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mt-16 mb-8 bg-[#1c1c1c73] p-6 rounded-xl text-white border-2 border-[#1c1c1c] backdrop-blur z-10 relative"
+      className="mt-16 mb-8 bg-[#1c1c1c73] p-6 rounded-xl text-white border-2 border-[#1c1c1c] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
     >
       <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[#00a8f1]">
         {t("about")}
@@ -36,9 +36,7 @@ const About = () => {
           <div className="mt-4 inline-flex items-center gap-2 px-3 py-2 rounded-full border-2 border-[#1c1c1c] bg-white/5">
             <Sparkles size={18} className="shrink-0 text-[#00a8f1]" />
             <span className="text-sm text-gray-200">
-              <span className="font-medium text-white">
-                Fun fact:
-              </span>{" "}
+              <span className="font-medium text-white">Fun fact:</span>{" "}
               {t("fun-fact")}
             </span>
           </div>

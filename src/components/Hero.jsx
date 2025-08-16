@@ -2,14 +2,14 @@ import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
 const Hero = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <motion.section
       id="home"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="hero z-10 relative text-white w-full text-center cal-sans-regular mt-2 md:p-10 p-2 min-h-[60vh] flex items-center flex-col justify-center"
+      className="hero z-10 relative text-white w-full text-center cal-sans-regular mt-2 md:p-10 p-2 min-h-[60vh] flex items-center flex-col justify-center scroll-mt-[calc(env(safe-area-inset-top))]"
     >
       <h1 className="md:text-8xl text-6xl">
         Martin <span className="text-[#00a8f1]">Beneš</span>

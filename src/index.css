@@ -23,3 +23,18 @@
     transform: scale(1) translateY(0);
   }
 }
+
+@supports (backdrop-filter: none) {
+  .frosted { backdrop-filter: blur(16px); }
+}
+@supports not (backdrop-filter: none) {
+  .frosted { background-color: rgba(28,28,28,0.85); }
+}
+
+:root{
+  scroll-padding-top: calc(6.25rem + env(safe-area-inset-top));
+}
+
+html {
+  background: #000;
+}

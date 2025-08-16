@@ -1,5 +1,5 @@
 import { Menu, Moon, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
@@ -8,29 +8,8 @@ const Header = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState(
-    localStorage.getItem("lang") || "en"
-  );
-
-  useEffect(() => {
-    if (!localStorage.getItem("langSet")) {
-      fetch("https://ipapi.co/json/")
-        .then((res) => res.json())
-        .then((data) => {
-          if (data && data.country_code === "CZ") {
-            setLanguage("cs");
-            localStorage.setItem("langSet", "true");
-          }
-        });
-    }
-  }, []);
-
-  useEffect(() => {
-    i18n.changeLanguage(language);
-    localStorage.setItem("lang", language);
-  }, [language, i18n]);
-
-  const nextLang = language === "en" ? "cs" : "en";
+  const lang = i18n.resolvedLanguage || i18n.language;
+  const nextLang = lang === "en" ? "cs" : "en";
   const flagCode = nextLang === "en" ? "GB" : "CZ";
   return (
     <>
@@ -38,7 +17,7 @@ const Header = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="sticky top-4 z-20 cal-sans-regular mt-4 bg-[#1c1c1c73] p-2 rounded-xl text-white border-2 border-[#1c1c1c] backdrop-blur"
+        className="sticky top-4 z-20 cal-sans-regular mt-4 bg-[#1c1c1c73] p-2 rounded-xl text-white border-2 border-[#1c1c1c] frosted"
       >
         <nav className="flex items-center">
           <div className="flex items-center mr-auto">
@@ -69,10 +48,10 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="#skills"
+                href="#experience"
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
               >
-                {t("skills")}
+                {t("experience")}
               </a>
             </li>
             <li>
@@ -104,7 +83,10 @@ const Header = () => {
             <li>
               <button
                 className="w-8 h-8 flex items-center justify-center rounded hover:scale-110 transition-all duration-200 hover:cursor-pointer"
-                onClick={() => setLanguage(nextLang)}
+                onClick={() => {
+                  i18n.changeLanguage(nextLang);
+                  localStorage.setItem("lang", nextLang);
+                }}
                 title={
                   nextLang === "en"
                     ? "Switch to English"
@@ -140,7 +122,7 @@ const Header = () => {
             z-[100]
             cal-sans-regular
             bg-[#1c1c1c73] p-2 rounded-xl text-white
-            border-2 border-[#1c1c1c] backdrop-blur
+            border-2 border-[#1c1c1c] frosted
           "
           style={{
             top: "calc(6.25rem + env(safe-area-inset-top))",
@@ -151,6 +133,7 @@ const Header = () => {
               <a
                 href="#home"
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200 w-100"
+                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("home")}
               </a>
@@ -159,22 +142,25 @@ const Header = () => {
               <a
                 href="#about"
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("about")}
               </a>
             </li>
             <li>
               <a
-                href="#skills"
+                href="#experience"
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
-                {t("skills")}
+                {t("experience")}
               </a>
             </li>
             <li>
               <a
                 href="#projects"
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("projects")}
               </a>
@@ -183,6 +169,7 @@ const Header = () => {
               <a
                 href="#contact"
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("contact")}
               </a>
@@ -200,7 +187,10 @@ const Header = () => {
             <li>
               <button
                 className="w-8 h-8 flex items-center justify-center rounded hover:scale-110 transition-all duration-200 hover:cursor-pointer"
-                onClick={() => setLanguage(nextLang)}
+                onClick={() => {
+                  i18n.changeLanguage(nextLang);
+                  localStorage.setItem("lang", nextLang);
+                }}
                 title={
                   nextLang === "en"
                     ? "Switch to English"
