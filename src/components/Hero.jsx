@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import { Github, GithubIcon, Instagram, Linkedin } from "lucide-react";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -45,6 +46,32 @@ const Hero = () => {
         >
           {t("download-cv")}
         </button>
+      </div>
+      <div className="mt-6 flex items-center gap-4 text-gray-300">
+        <a
+          href="https://github.com/benesmartin"
+          className="hover:text-[#00a8f1] transition-colors duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Github size={24} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/martinbenes790/"
+          className="hover:text-[#00a8f1] transition-colors duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Linkedin size={24} />
+        </a>
+        <a
+          href="https://instagram.com/martinbenes05"
+          className="hover:text-[#00a8f1] transition-colors duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Instagram size={24} />
+        </a>
       </div>
     </motion.section>
   );
