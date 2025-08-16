@@ -1,55 +1,130 @@
 {
   "home": "Domů",
   "about": "O mně",
-  "experience": "Zkušenosti",
-  "projects": "Projekty",
-  "contact": "Kontakt",
+  "contact": {
+    "title": "Kontakt",
+    "name": "Jméno",
+    "namePh": "Vaše jméno",
+    "message": "Zpráva",
+    "messagePh": "Pojďme spolupracovat!",
+    "send": "Odeslat",
+    "copy": "Kopírovat",
+    "copied": "Zkopírováno",
+    "response": "Odpovím co nejdřív",
+    "emailMe": "Napiš mi",
+    "elsewhere": "Sítě",
+    "sending": "Odesílám...",
+    "sent": "Díky! Zpráva byla odeslána.",
+    "err": {
+      "generic": "Něco se pokazilo. Zkus to prosím znovu.",
+      "name": "Zadej prosím své jméno.",
+      "emailReq": "Zadej prosím e-mail.",
+      "emailBad": "Zadej prosím platný e-mail.",
+      "msg": "Zadej prosím zprávu.",
+      "msgLong": "Zpráva je příliš dlouhá.",
+      "domainBad": "Neznámá nebo neplatná doména e-mailu.",
+      "mxMissing": "Doména nemá MX záznamy.",
+      "missing": "Chybí povinná pole."
+    }
+  },
   "hero-sub": "Vývojář webů • Student",
   "view-projects": "Zobrazit projekty",
   "download-cv": "Stáhnout CV",
   "about-paragraph": "Jsem student aplikované informatiky se zájmem o frontend, tvorbu užitečných webových stránek, ladění UX a self-hosting projektů.",
   "fun-fact": "Svůj domácí server jsem pojmenoval bebop :D",
-  "experience.tabs.work": "Práce",
-  "experience.tabs.soft": "Měkké dovednosti",
-  "experience.tabs.hard": "Tvrdé dovednosti",
-  "experience.work.1.period": "červenec 2024 - dosud",
-  "experience.work.1.title": "Technik IT",
-  "experience.work.1.desc": "Zajišťení IT podpory a správy systémů ve firmě, včetně konfigurace serverů a řešení technických problémů uživatelů.",
-  "experience.work.2.period": "říjen 2022 - dosud",
-  "experience.work.2.title": "Režisér zápasového programu",
-  "experience.work.2.desc": "Správa hlavní LED obrazovky a zvukového systěmu, v minulosti práce s kamerou a tvorba opakovaných záznamů.",
-  "experience.work.3.period": "leden 2022 - únor 2022",
-  "experience.work.3.title": "Frontend vývojář",
-  "experience.work.3.desc": "Úpravy a vylepšení webové mapové aplikace, týmová komunikace a návrh nových komponent pro uživatelské rozhraní.",
-  "experience.work.4.period": "březen 2021 - květen 2021",
-  "experience.work.4.title": "Copywriter",
-  "experience.work.4.desc": "Psaní článků a investičních analýz, úprava textů, práce s WordPressem.",
-  "experience.soft.communication": "Komunikace",
-  "experience.soft.communication.proof": "Koordinace při zápasovém dni s AV týmem; jasná komunikace při provozu LED obrazovky + zvuku pod časovým tlakem.",
-  "experience.soft.problem-solving": "Řešení problémů",
-  "experience.soft.problem-solving.proof": "Malé automatizace pro zkrácení opakovaných úkolů a snížení času na vyřízení ticketů.",
-  "experience.soft.teamwork": "Týmová spolupráce",
-  "experience.soft.teamwork.proof": "Spolupráce napříč rolemi (technická podpora, AV operace, editoři) pro hladký průběh akcí a služeb.",
-  "experience.soft.empathy": "Empatie",
-  "experience.soft.empathy.proof": "Podpora studentů/zaměstnanců s různou úrovní technických znalostí; individuální přístup a klidné řešení problémů.",
-  "experience.soft.focus": "Zaměření na detaily",
-  "experience.soft.focus.proof": "Vytváření self-hosted nástrojů; dlouhé soustředěné pracovní bloky pro dokončení užitečných utilit.",
-  "experience.soft.adaptability": "Přizpůsobivost",
-  "experience.soft.adaptability.proof": "Přechod mezi různými rolemi podle potřeby; rychlé učení se nových věcí.",
-  "experience.buckets.frontend.basics.responsive": "Responzivní design",
-  "experience.buckets.frontend.basics.http": "HTTP základy",
-  "experience.buckets.frontend.group": "Jádro frontendu",
-  "experience.buckets.programming-languages.group": "Programovací jazyky",
-  "experience.buckets.databases.group": "Databáze a SQL",
-  "experience.buckets.backend.group": "Backend, infrastruktura a workflow",
-  "projects.featured": "Vybrané",
-  "projects.view-demo": "Demo",
-  "projects.view-code": "Kód",
-  "projects.items.nm.title": "Necromancer's Mystery",
-  "projects.items.nm.desc": "Textová webová hra s pixel-art grafikou, vlastními SFX a minihrami. Hráč prochází příběhem s možností více konců, stromem rozhodnutí a tahovými souboji. Součástí jsou minihry, customizace postavy a galerie navštívených míst.",
-  "projects.items.pokemon.title": "Pokémon Sandstone",
-  "projects.items.pokemon.desc": "Fanouškovský monster-catching projekt vytvořený v Unity. Implementoval jsem veškeré programování (C#): chytání, tahové souboje, inventář, XP/odznaky, UI a scene flow. Art & 3D: Pavka5.",
-  "projects.items.wmb-pay.title": "WMB Pay",
-  "projects.items.wmb-pay.desc": "Jednoduchá stránka pro rychlé platby s živou změnou částky z URL (např. /300), generováním QR kódů a důrazem na mobilní UX.",
-  "projects.more-on-github": "Více na GitHubu"
+  "experience": {
+    "title": "Zkušenosti",
+    "tabs": {
+      "work": "Práce",
+      "soft": "Měkké dovednosti",
+      "hard": "Tvrdé dovednosti"
+    },
+    "work": {
+      "1": {
+        "period": "červenec 2024 - dosud",
+        "title": "Technik IT",
+        "desc": "Zajištění IT podpory a správy systémů ve firmě, včetně konfigurace serverů a řešení technických problémů uživatelů."
+      },
+      "2": {
+        "period": "říjen 2022 - dosud",
+        "title": "Režisér zápasového programu",
+        "desc": "Správa hlavní LED obrazovky a zvukového systěmu, v minulosti práce s kamerou a tvorba opakovaných záznamů."
+      },
+      "3": {
+        "period": "leden 2022 - únor 2022",
+        "title": "Frontend vývojář",
+        "desc": "Úpravy a vylepšení webové mapové aplikace, týmová komunikace a návrh nových komponent pro uživatelské rozhraní."
+      },
+      "4": {
+        "period": "březen 2021 - květen 2021",
+        "title": "Copywriter",
+        "desc": "Psaní článků a investičních analýz, úprava textů, práce s WordPressem."
+      }
+    },
+    "soft": {
+      "communication": {
+        "label": "Komunikace",
+        "proof": "Koordinace při zápasovém dni s AV týmem; jasná komunikace při provozu LED obrazovky + zvuku pod časovým tlakem."
+      },
+      "problem-solving": {
+        "label": "Řešení problémů",
+        "proof": "Malé automatizace pro zkrácení opakovaných úkolů a snížení času na vyřízení ticketů."
+      },
+      "teamwork": {
+        "label": "Týmová spolupráce",
+        "proof": "Spolupráce napříč rolemi (technická podpora, AV operace, editoři) pro hladký průběh akcí a služeb."
+      },
+      "empathy": {
+        "label": "Empatie",
+        "proof": "Podpora studentů/zaměstnanců s různou úrovní technických znalostí; individuální přístup a klidné řešení problémů."
+      },
+      "focus": {
+        "label": "Zaměření na detaily",
+        "proof": "Vytváření self-hosted nástrojů; dlouhé soustředěné pracovní bloky pro dokončení užitečných utilit."
+      },
+      "adaptability": {
+        "label": "Přizpůsobivost",
+        "proof": "Přechod mezi různými rolemi podle potřeby; rychlé učení se nových věcí."
+      }
+    },
+    "buckets": {
+      "frontend": {
+        "basics": {
+          "responsive": "Responzivní design",
+          "http": "HTTP základy"
+        },
+        "group": "Jádro frontendu"
+      },
+      "programming-languages": {
+        "group": "Programovací jazyky"
+      },
+      "databases": {
+        "group": "Databáze a SQL"
+      },
+      "backend": {
+        "group": "Backend, infrastruktura a workflow"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projekty",
+    "featured": "Vybrané",
+    "view-demo": "Demo",
+    "view-code": "Kód",
+    "items": {
+      "nm": {
+        "title": "Necromancer's Mystery",
+        "desc": "Textová webová hra s pixel-art grafikou, vlastními SFX a minihrami. Hráč prochází příběhem s možností více konců, stromem rozhodnutí a tahovými souboji. Součástí jsou minihry, customizace postavy a galerie navštívených míst."
+      },
+      "pokemon": {
+        "title": "Pokémon Sandstone",
+        "desc": "Fanouškovský monster-catching projekt vytvořený v Unity. Implementoval jsem veškeré programování (C#): chytání, tahové souboje, inventář, XP/odznaky, UI a scene flow. Art & 3D: Pavka5."
+      },
+      "wmb-pay": {
+        "title": "WMB Pay",
+        "desc": "Jednoduchá stránka pro rychlé platby s živou změnou částky z URL (např. /300), generováním QR kódů a důrazem na mobilní UX."
+      }
+    },
+    "more-on-github": "Více na GitHubu"
+  }
 }

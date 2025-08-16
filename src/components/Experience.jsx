@@ -41,7 +41,7 @@ export default function Experience() {
         "i18next (react-i18next)",
         t("experience.buckets.frontend.basics.http"),
       ],
-      plus: ["Bootstrap", "Code splitting"],
+      plus: ["Bootstrap"],
     },
     {
       icon: Code2,
@@ -83,7 +83,7 @@ export default function Experience() {
       className="mt-16 mb-8 bg-[#1c1c1c73] p-6 rounded-xl text-white border-2 border-[#1c1c1c] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
     >
       <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[#00a8f1]">
-        {t("experience")}
+        {t("experience.title")}
       </h2>
 
       <div
@@ -232,32 +232,32 @@ export default function Experience() {
             {[
               {
                 icon: MessageSquareText,
-                title: t("experience.soft.communication"),
+                title: t("experience.soft.communication.label"),
                 proof: t("experience.soft.communication.proof"),
               },
               {
                 icon: Puzzle,
-                title: t("experience.soft.problem-solving"),
+                title: t("experience.soft.problem-solving.label"),
                 proof: t("experience.soft.problem-solving.proof"),
               },
               {
                 icon: Users,
-                title: t("experience.soft.teamwork"),
+                title: t("experience.soft.teamwork.label"),
                 proof: t("experience.soft.teamwork.proof"),
               },
               {
                 icon: HeartHandshake,
-                title: t("experience.soft.empathy"),
+                title: t("experience.soft.empathy.label"),
                 proof: t("experience.soft.empathy.proof"),
               },
               {
                 icon: Focus,
-                title: t("experience.soft.focus"),
+                title: t("experience.soft.focus.label"),
                 proof: t("experience.soft.focus.proof"),
               },
               {
                 icon: Shuffle,
-                title: t("experience.soft.adaptability"),
+                title: t("experience.soft.adaptability.label"),
                 proof: t("experience.soft.adaptability.proof"),
               },
             ].map(({ icon: Icon, title, proof }, i) => (

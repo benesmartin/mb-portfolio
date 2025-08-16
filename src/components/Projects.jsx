@@ -73,7 +73,7 @@ const Projects = () => {
       className="mt-16 mb-8 bg-[#1c1c1c73] p-6 rounded-xl text-white border-2 border-[#1c1c1c] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
     >
       <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[#00a8f1]">
-        {t("projects")}
+        {t("projects.title")}
       </h2>
 
       <motion.div

@@ -1,55 +1,130 @@
 {
   "home": "Home",
   "about": "About",
-  "experience": "Experience",
-  "projects": "Projects",
-  "contact": "Contact",
   "hero-sub": "Web Developer • Student",
   "view-projects": "View Projects",
   "download-cv": "Download CV",
   "about-paragraph": "I'm a frontend-leaning Applied Informatics student who loves building useful websites, polishing UX, and self-hosting projects.",
   "fun-fact": "My home server is named bebop :D",
-  "experience.tabs.work": "Work",
-  "experience.tabs.soft": "Soft Skills",
-  "experience.tabs.hard": "Hard Skills",
-  "experience.work.1.period": "July 2024 - Present",
-  "experience.work.1.title": "IT Technician",
-  "experience.work.1.desc": "Providing IT support and system administration within the company, including server configuration and resolving technical issues for users.", 
-  "experience.work.2.period": "October 2022 - Present",
-  "experience.work.2.title": "Match Day Director",
-  "experience.work.2.desc": "Managing the main LED screen and sound system on the stadium, started as a cameraman / instant replay maker.",
-  "experience.work.3.period": "January 2022 - February 2022",
-  "experience.work.3.title": "Frontend Developer",
-  "experience.work.3.desc": "Modifications and improvements to the web map application, team communication, and design of new components for the user interface.",
-  "experience.work.4.period": "March 2021 - May 2021",
-  "experience.work.4.title": "Copywriter",
-  "experience.work.4.desc": "Writing articles and investment analyses, editing texts, working with WordPress.",
-  "experience.soft.communication": "Communication",
-  "experience.soft.communication.proof": "Match day coordination with AV crew; clear comms running stadium LED + sound under time pressure.",
-  "experience.soft.problem-solving": "Problem-solving",
-  "experience.soft.problem-solving.proof": "Small automations to cut repetitive tasks and reduce ticket time.",
-  "experience.soft.teamwork": "Teamwork",
-  "experience.soft.teamwork.proof": "Cross-role collaboration (tech support, AV ops, editors) to keep events and services running.",
-  "experience.soft.empathy": "Empathy",
-  "experience.soft.empathy.proof": "Support for students/staff with varying tech levels; tailored guidance and calm troubleshooting.",
-  "experience.soft.focus": "Focus & Depth",
-  "experience.soft.focus.proof": "Built self-hosted tools; long deep-work sessions to ship useful utilities.",
-  "experience.soft.adaptability": "Adaptability",
-  "experience.soft.adaptability.proof": "Switched between roles as needs changed; learned on the fly.",
-  "experience.buckets.frontend.basics.responsive": "Responsive design",
-  "experience.buckets.frontend.basics.http": "HTTP basics",
-  "experience.buckets.frontend.group": "Core Frontend",
-  "experience.buckets.programming-languages.group": "Programming Languages",
-  "experience.buckets.databases.group": "Databases & SQL",
-  "experience.buckets.backend.group": "Backend, Infrastructure & Workflow",
-  "projects.featured": "Featured",
-  "projects.view-demo": "Demo",
-  "projects.view-code": "Code",
-  "projects.items.nm.title": "Necromancer's Mystery",
-  "projects.items.nm.desc": "Text-based web game with pixel-art graphics, custom SFX, and mini-games. Players navigate a story with multiple endings, a decision tree, and turn-based combat. Includes mini-games, character customization, and a gallery of visited locations.",
-  "projects.items.pokemon.title": "Pokémon Sandstone",
-  "projects.items.pokemon.desc": "Fan-made monster-catching project created in Unity. I implemented all programming (C#): catching, turn-based battles, inventory, XP/badges, UI, and scene flow. Art & 3D: Pavka5.",
-  "projects.items.wmb-pay.title": "WMB Pay",
-  "projects.items.wmb-pay.desc": "Simple 'pay me' page with live amount from URL (e.g. /300), QR code generation, and mobile-first UX.",
-  "projects.more-on-github": "More on GitHub"
+  "experience": {
+    "title": "Experience",
+    "tabs": {
+      "work": "Work",
+      "soft": "Soft Skills",
+      "hard": "Hard Skills"
+    },
+    "work": {
+      "1": {
+        "period": "July 2024 - Present",
+        "title": "IT Technician",
+        "desc": "Providing IT support and system administration within the company, including server configuration and resolving technical issues for users."
+      },
+      "2": {
+        "period": "October 2022 - Present",
+        "title": "Match Day Director",
+        "desc": "Managing the main LED screen and sound system on the stadium, started as a cameraman / instant replay maker."
+      },
+      "3": {
+        "period": "January 2022 - February 2022",
+        "title": "Frontend Developer",
+        "desc": "Modifications and improvements to the web map application, team communication, and design of new components for the user interface."
+      },
+      "4": {
+        "period": "March 2021 - May 2021",
+        "title": "Copywriter",
+        "desc": "Writing articles and investment analyses, editing texts, working with WordPress."
+      }
+    },
+    "soft": {
+      "communication": {
+        "label": "Communication",
+        "proof": "Match day coordination with AV crew; clear communication running stadium LED + sound under time pressure."
+      },
+      "problem-solving": {
+        "label": "Problem-solving",
+        "proof": "Small automations to cut repetitive tasks and reduce ticket time."
+      },
+      "teamwork": {
+        "label": "Teamwork",
+        "proof": "Cross-role collaboration (tech support, AV ops, editors) to keep events and services running."
+      },
+      "empathy": {
+        "label": "Empathy",
+        "proof": "Support for students/staff with varying tech levels; tailored guidance and calm troubleshooting."
+      },
+      "focus": {
+        "label": "Focus & Depth",
+        "proof": "Built self-hosted tools; long deep-work sessions to ship useful utilities."
+      },
+      "adaptability": {
+        "label": "Adaptability",
+        "proof": "Switched between roles as needs changed; learned on the fly."
+      }
+    },
+    "buckets": {
+      "frontend": {
+        "basics": {
+          "responsive": "Responsive design",
+          "http": "HTTP basics"
+        },
+        "group": "Core Frontend"
+      },
+      "programming-languages": {
+        "group": "Programming Languages"
+      },
+      "databases": {
+        "group": "Databases & SQL"
+      },
+      "backend": {
+        "group": "Backend, Infrastructure & Workflow"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "featured": "Featured",
+    "view-demo": "Demo",
+    "view-code": "Code",
+    "items": {
+      "nm": {
+        "title": "Necromancer's Mystery",
+        "desc": "Text-based web game with pixel-art graphics, custom SFX, and mini-games. Players navigate a story with multiple endings, a decision tree, and turn-based combat. Includes mini-games, character customization, and a gallery of visited locations."
+      },
+      "pokemon": {
+        "title": "Pokémon Sandstone",
+        "desc": "Fan-made monster-catching project created in Unity. I implemented all programming (C#): catching, turn-based battles, inventory, XP/badges, UI, and scene flow. Art & 3D: Pavka5."
+      },
+      "wmb-pay": {
+        "title": "WMB Pay",
+        "desc": "Simple 'pay me' page with live amount from URL (e.g. /300), QR code generation, and mobile-first UX."
+      }
+    },
+    "more-on-github": "More on GitHub"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "namePh": "Your name",
+    "message": "Message",
+    "messagePh": "Let's work together!",
+    "send": "Send",
+    "copy": "Copy",
+    "copied": "Copied",
+    "response": "I'll reply ASAP",
+    "emailMe": "Email me",
+    "elsewhere": "Socials",
+    "sending": "Sending...",
+    "sent": "Thanks! Message sent.",
+    "err": {
+      "generic": "Something went wrong. Please try again.",
+      "name": "Please enter your name.",
+      "emailReq": "Please enter your email.",
+      "emailBad": "Please enter a valid email.",
+      "msg": "Please enter a message.",
+      "msgLong": "Message is too long.",
+      "domainBad": "Unknown or invalid email domain.",
+      "mxMissing": "Domain has no MX records.",
+      "missing": "Some required fields are missing."
+    }
+  }
 }
