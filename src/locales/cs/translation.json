@@ -41,5 +41,15 @@
   "experience.buckets.frontend.group": "Jádro frontendu",
   "experience.buckets.programming-languages.group": "Programovací jazyky",
   "experience.buckets.databases.group": "Databáze a SQL",
-  "experience.buckets.backend.group": "Backend, infrastruktura a workflow"
+  "experience.buckets.backend.group": "Backend, infrastruktura a workflow",
+  "projects.featured": "Vybrané",
+  "projects.view-demo": "Demo",
+  "projects.view-code": "Kód",
+  "projects.items.nm.title": "Necromancer's Mystery",
+  "projects.items.nm.desc": "Textová webová hra s pixel-art grafikou, vlastními SFX a minihrami. Hráč prochází příběhem s možností více konců, stromem rozhodnutí a tahovými souboji. Součástí jsou minihry, customizace postavy a galerie navštívených míst.",
+  "projects.items.pokemon.title": "Pokémon Sandstone",
+  "projects.items.pokemon.desc": "Fanouškovský monster-catching projekt vytvořený v Unity. Implementoval jsem veškeré programování (C#): chytání, tahové souboje, inventář, XP/odznaky, UI a scene flow. Art & 3D: Pavka5.",
+  "projects.items.wmb-pay.title": "WMB Pay",
+  "projects.items.wmb-pay.desc": "Jednoduchá stránka pro rychlé platby s živou změnou částky z URL (např. /300), generováním QR kódů a důrazem na mobilní UX.",
+  "projects.more-on-github": "Více na GitHubu"
 }

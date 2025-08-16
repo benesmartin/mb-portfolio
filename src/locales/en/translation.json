@@ -41,6 +41,15 @@
   "experience.buckets.frontend.group": "Core Frontend",
   "experience.buckets.programming-languages.group": "Programming Languages",
   "experience.buckets.databases.group": "Databases & SQL",
-  "experience.buckets.backend.group": "Backend, Infrastructure & Workflow"
-
+  "experience.buckets.backend.group": "Backend, Infrastructure & Workflow",
+  "projects.featured": "Featured",
+  "projects.view-demo": "Demo",
+  "projects.view-code": "Code",
+  "projects.items.nm.title": "Necromancer's Mystery",
+  "projects.items.nm.desc": "Text-based web game with pixel-art graphics, custom SFX, and mini-games. Players navigate a story with multiple endings, a decision tree, and turn-based combat. Includes mini-games, character customization, and a gallery of visited locations.",
+  "projects.items.pokemon.title": "Pokémon Sandstone",
+  "projects.items.pokemon.desc": "Fan-made monster-catching project created in Unity. I implemented all programming (C#): catching, turn-based battles, inventory, XP/badges, UI, and scene flow. Art & 3D: Pavka5.",
+  "projects.items.wmb-pay.title": "WMB Pay",
+  "projects.items.wmb-pay.desc": "Simple 'pay me' page with live amount from URL (e.g. /300), QR code generation, and mobile-first UX.",
+  "projects.more-on-github": "More on GitHub"
 }

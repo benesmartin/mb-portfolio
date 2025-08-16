@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
-import { Github, GithubIcon, Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -29,6 +29,11 @@ const Hero = () => {
             transition-all duration-300
             cursor-pointer
           "
+          onClick={() =>
+            document
+              .getElementById("projects")
+              .scrollIntoView({ behavior: "smooth" })
+          }
         >
           {t("view-projects")}
         </button>
