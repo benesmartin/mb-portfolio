@@ -11,9 +11,9 @@ const App = () => {
   return (
     <>
       <ParticlesBackground />
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4">
         <Header />
-        <main className="max-w-5xl">
+        <main className="max-w-5xl mx-auto">
           <Hero />
           <About />
           <Experience />
