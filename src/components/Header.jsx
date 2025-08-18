@@ -153,7 +153,7 @@ const Header = () => {
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
-                {t("experience")}
+                {t("experience.title")}
               </a>
             </li>
             <li>
@@ -162,7 +162,7 @@ const Header = () => {
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
-                {t("projects")}
+                {t("projects.title")}
               </a>
             </li>
             <li>
@@ -171,7 +171,7 @@ const Header = () => {
                 className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
-                {t("contact")}
+                {t("contact.title")}
               </a>
             </li>
           </ul>
