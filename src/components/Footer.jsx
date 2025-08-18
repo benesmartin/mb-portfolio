@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import LastCommitDate from "./LastCommitDate";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -17,6 +18,8 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4">
         <div className="mr-auto text-sm">
           © 2021-{year} <span className="text-white">Martin Beneš</span>
+          <br />
+          <LastCommitDate />
         </div>
 
         <a

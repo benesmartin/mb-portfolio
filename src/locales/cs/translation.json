@@ -129,5 +129,7 @@
   },
   "footer": {
     "backToTop": "Zpět na začátek"
-  }
+  },
+  "last_commit_date": "Poslední commit",
+  "loading": "Načítání..."
 }
