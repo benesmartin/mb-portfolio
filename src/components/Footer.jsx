@@ -13,21 +13,21 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="mt-16 mb-6 bg-[#1c1c1c73] border-2 border-[#1c1c1c] rounded-xl text-gray-300 backdrop-blur p-3"
+      className="mt-16 mb-6 bg-[var(--card)] border-2 border-[var(--border)] rounded-xl text-[var(--muted)] backdrop-blur p-3"
     >
       <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4">
         <div className="mr-auto text-sm">
-          © 2021-{year} <span className="text-white">Martin Beneš</span>
+          © 2021-{year} <span className="text-[var(--text)]">Martin Beneš</span>
           <br />
           <LastCommitDate />
         </div>
 
         <a
           href="#home"
-          className="inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border-2 border-[#1c1c1c] bg-white/5 hover:bg-white/10 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full border-2 border-[var(--border)] bg-[var(--bg)] hover:bg-[var(--bg-hover)]/80 transition-colors"
         >
-          <ArrowUp size={16} className="text-[#00a8f1]" aria-hidden />
-          <span>{t("footer.backToTop")}</span>
+          <ArrowUp size={16} className="text-[var(--accent)]" aria-hidden />
+          <span className="text-[var(--text)]">{t("footer.backToTop")}</span>
         </a>
       </div>
     </motion.footer>

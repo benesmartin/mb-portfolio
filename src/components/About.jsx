@@ -13,9 +13,9 @@ const About = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mt-16 mb-8 p-6 rounded-xl text-white border-2 border-[#1c1c1c] bg-[#1c1c1c73] backdrop-blur"
+      className="mt-16 mb-8 p-6 rounded-xl text-[var(--text)] border-2 border-[var(--border)] bg-[var(--card)] backdrop-blur"
     >
-      <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[#00a8f1]">
+      <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[var(--accent)]">
         {t("about")}
       </h2>
 
@@ -25,7 +25,7 @@ const About = () => {
           alt="Martin Beneš"
           width={256}
           height={256}
-          className="rounded-md border-2 border-[#1c1c1c] mx-auto md:mx-0"
+          className="rounded-md border-2 border-[var(--border)] mx-auto md:mx-0"
           loading="lazy"
           decoding="async"
           initial={{ opacity: 0, scale: reduce ? 1 : 0.98 }}
@@ -40,7 +40,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: "easeOut", delay: 0.05 }}
             viewport={{ once: true, amount: 0.4 }}
-            className="text-lg text-gray-300 leading-relaxed"
+            className="text-lg text-[var(--muted)] leading-relaxed"
           >
             {t("about-paragraph")}
           </motion.p>
@@ -59,11 +59,11 @@ const About = () => {
               delay: 0.1,
             }}
             viewport={{ once: true, amount: 0.4 }}
-            className="mt-4 inline-flex items-center gap-2 px-3 py-2 rounded-full border-2 border-[#1c1c1c] bg-white/5"
+            className="mt-4 inline-flex items-center gap-2 px-3 py-2 rounded-full border-2 border-[var(--border)] bg-[var(--bg)] text-[var(--text)]"
           >
-            <Sparkles size={18} className="text-[#00a8f1]" />
-            <span className="text-sm text-gray-200">
-              <span className="font-medium text-white">Fun fact:</span>{" "}
+            <Sparkles size={18} className="text-[var(--accent)]" />
+            <span className="text-sm text-[var(--muted)]">
+              <span className="font-medium text-[var(--text)]">Fun fact:</span>{" "}
               {t("fun-fact")}
             </span>
           </motion.div>

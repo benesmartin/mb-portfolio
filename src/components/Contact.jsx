@@ -122,7 +122,7 @@ const Contact = () => {
   }
 
   const inputBase =
-    "px-3 py-2 rounded-lg border-2 border-[#2e2e2e] bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-[#00a8f1]";
+    "px-3 py-2 rounded-lg border-2 border-[var(--border)] bg-transparent text-[var(--text)] placeholder-gray-400 focus:outline-none focus:border-[var(--muted)]";
 
   return (
     <motion.section
@@ -131,17 +131,17 @@ const Contact = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mt-16 mb-8 bg-[#1c1c1c73] p-6 rounded-xl text-white border-2 border-[#1c1c1c] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
+      className="mt-16 mb-8 bg-[var(--card)] p-6 rounded-xl text-[var(--text)] border-2 border-[var(--border)] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
     >
-      <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[#00a8f1]">
+      <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[var(--accent)]">
         {t("contact.title")}
       </h2>
       <div className="flex flex-wrap gap-3">
-        <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-[#1c1c1c] bg-white/5">
-          <Mail size={18} className="text-[#00a8f1]" />
+        <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-[var(--border)] bg-[var(--bg)]">
+          <Mail size={18} className="text-[var(--accent)]" />
           <a
             href={`mailto:${EMAIL}`}
-            className="text-sm text-gray-200 hover:text-white transition-colors"
+            className="text-sm text-[var(--muted-more)] hover:text-[var(--text)] transition-colors"
           >
             {EMAIL}
           </a>
@@ -149,34 +149,36 @@ const Contact = () => {
             whileTap={{ scale: 0.95 }}
             onClick={copyEmail}
             aria-live="polite"
-            className="ml-1 inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border-2 border-[#1c1c1c] bg-white/5 hover:bg-white/10 cursor-pointer"
+            className="ml-1 inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md border-2 border-[var(--border)] bg-[var(--bg)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer"
           >
             {copied ? (
               <>
-                <Check size={14} className="text-[#00a8f1]" />
+                <Check size={14} className="text-[var(--accent)]" />
                 {t("contact.copied")}
               </>
             ) : (
               <>
-                <Copy size={14} className="text-[#00a8f1]" />
+                <Copy size={14} className="text-[var(--accent)]" />
                 {t("contact.copy")}
               </>
             )}
           </motion.button>
         </div>
-        <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-[#1c1c1c] bg-white/5">
-          <MapPin size={18} className="text-[#00a8f1]" />
-          <span className="text-sm text-gray-200">Teplice, CZ</span>
+        <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-[var(--border)] bg-[var(--bg)]">
+          <MapPin size={18} className="text-[var(--accent)]" />
+          <span className="text-sm text-[var(--muted-more)]">Teplice, CZ</span>
         </div>
-        <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-[#1c1c1c] bg-white/5">
-          <Clock size={18} className="text-[#00a8f1]" />
-          <span className="text-sm text-gray-200">{t("contact.response")}</span>
+        <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-[var(--border)] bg-[var(--bg)]">
+          <Clock size={18} className="text-[var(--accent)]" />
+          <span className="text-sm text-[var(--muted-more)]">
+            {t("contact.response")}
+          </span>
         </div>
       </div>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
         <form
           onSubmit={onSubmit}
-          className="md:col-span-2 rounded-xl border-2 border-[#1c1c1c] bg-white/5 p-4"
+          className="md:col-span-2 rounded-xl border-2 border-[var(--border)] bg-[var(--bg)] p-4"
           noValidate
         >
           <h3 className="text-xl font-semibold mb-3">{t("contact.emailMe")}</h3>
@@ -185,10 +187,10 @@ const Contact = () => {
               className={`mb-3 rounded-lg border-2 p-3 inline-flex items-start gap-2
                         ${
                           status === "success"
-                            ? "border-[#1c1c1c] bg-emerald-500/10"
+                            ? "border-[var(--border)] bg-emerald-500/10"
                             : status === "error"
-                            ? "border-[#1c1c1c] bg-red-500/10"
-                            : "border-[#1c1c1c] bg-white/5"
+                            ? "border-[var(--border)] bg-red-500/10"
+                            : "border-[var(--border)] bg-[var(--bg)]"
                         }`}
               role="status"
               aria-live="polite"
@@ -202,7 +204,7 @@ const Contact = () => {
               {status === "success" && (
                 <Check size={18} className="text-emerald-400 mt-0.5" />
               )}
-              <span className="text-sm text-gray-200">
+              <span className="text-sm text-[var(--muted-more)]">
                 {status === "loading" && t("contact.sending")}
                 {status === "success" && t("contact.sent")}
                 {status === "error" && (serverMsg || t("contact.err.generic"))}
@@ -211,7 +213,9 @@ const Contact = () => {
           )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <label className="flex flex-col gap-1">
-              <span className="text-sm text-gray-300">{t("contact.name")}</span>
+              <span className="text-sm text-[var(--muted)]">
+                {t("contact.name")}
+              </span>
               <input
                 name="name"
                 type="text"
@@ -231,7 +235,7 @@ const Contact = () => {
               )}
             </label>
             <label className="flex flex-col gap-1">
-              <span className="text-sm text-gray-300">Email</span>
+              <span className="text-sm text-[var(--muted)]">Email</span>
               <input
                 name="email"
                 type="email"
@@ -252,7 +256,7 @@ const Contact = () => {
             </label>
           </div>
           <label className="mt-3 block">
-            <span className="text-sm text-gray-300">
+            <span className="text-sm text-[var(--muted)]">
               {t("contact.message")}
             </span>
             <textarea
@@ -284,17 +288,17 @@ const Contact = () => {
             whileTap={{ scale: loading ? 1 : 0.98 }}
             type="submit"
             disabled={loading}
-            className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-[#1c1c1c] bg-white/5 hover:bg-white/10 transition-colors cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+            className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-[var(--border)] bg-[var(--bg)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {loading ? (
               <Loader2 size={16} className="animate-spin" />
             ) : (
-              <Send size={16} className="text-[#00a8f1]" />
+              <Send size={16} className="text-[var(--accent)]" />
             )}
             {t("contact.send")}
           </motion.button>
         </form>
-        <div className="rounded-xl border-2 border-[#1c1c1c] bg-white/5 p-5">
+        <div className="rounded-xl border-2 border-[var(--border)] bg-[var(--bg)] p-5">
           <h3 className="text-xl font-semibold mb-3">
             {t("contact.elsewhere")}
           </h3>
@@ -325,10 +329,10 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.03 * i }}
-                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-[#1c1c1c] bg-white/5 hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-[var(--border)] bg-[var(--bg)] hover:bg-[var(--bg-hover)] transition-colors"
                 style={{ minHeight: 44 }}
               >
-                <Icon size={18} className="text-[#00a8f1]" aria-hidden />
+                <Icon size={18} className="text-[var(--accent)]" aria-hidden />
                 <span className="text-sm">{label}</span>
               </motion.a>
             ))}

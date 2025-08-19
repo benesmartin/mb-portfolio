@@ -10,18 +10,18 @@ const Hero = () => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="hero z-10 relative text-white w-full text-center cal-sans-regular mt-2 md:p-10 p-2 min-h-[60vh] flex items-center flex-col justify-center scroll-mt-[calc(env(safe-area-inset-top))]"
+      className="hero z-10 relative text-[var(--text)] w-full text-center cal-sans-regular mt-2 md:p-10 p-2 min-h-[60vh] flex items-center flex-col justify-center scroll-mt-[calc(env(safe-area-inset-top))]"
     >
       <h1 className="md:text-8xl text-6xl">
-        Martin <span className="text-[#00a8f1]">Beneš</span>
+        Martin <span className="text-[var(--accent)]">Beneš</span>
       </h1>
-      <p className="roboto-regular md:text-xl text-md mt-1 text-gray-300">
+      <p className="roboto-regular md:text-xl text-md mt-1 text-[var(--muted)]">
         {t("hero-sub")}
       </p>
       <div className="mt-8 w-full flex justify-center gap-4">
         <button
           className="
-          bg-[#00a8f1]
+          bg-[var(--accent)]
             py-2 px-6 md:text-lg text-sm
             rounded-full
             font-medium
@@ -40,11 +40,11 @@ const Hero = () => {
 
         <button
           className="
-            border-2 border-[#00a8f1]
+            border-2 border-[var(--accent)]
             py-2 px-6 md:text-lg text-sm
             rounded-full
             font-medium
-            hover:bg-[#00a8f1] hover:text-white
+            hover:bg-[var(--accent)] hover:text-[var(--text)]
             transition-all duration-300
             cursor-pointer
           "
@@ -52,10 +52,10 @@ const Hero = () => {
           {t("download-cv")}
         </button>
       </div>
-      <div className="mt-6 flex items-center gap-4 text-gray-300">
+      <div className="mt-6 flex items-center gap-4 text-[var(--muted)]">
         <a
           href="https://github.com/benesmartin"
-          className="hover:text-[#00a8f1] transition-colors duration-300"
+          className="hover:text-[var(--accent)] transition-colors duration-300"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -63,7 +63,7 @@ const Hero = () => {
         </a>
         <a
           href="https://www.linkedin.com/in/martinbenes790/"
-          className="hover:text-[#00a8f1] transition-colors duration-300"
+          className="hover:text-[var(--accent)] transition-colors duration-300"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -71,7 +71,7 @@ const Hero = () => {
         </a>
         <a
           href="https://instagram.com/martinbenes05"
-          className="hover:text-[#00a8f1] transition-colors duration-300"
+          className="hover:text-[var(--accent)] transition-colors duration-300"
           target="_blank"
           rel="noopener noreferrer"
         >

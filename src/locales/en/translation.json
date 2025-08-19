@@ -131,5 +131,7 @@
     "backToTop": "Back to top"
   },
   "last_commit_date": "Last commit",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "lightMode": "Light mode",
+  "darkMode": "Dark mode"
 }

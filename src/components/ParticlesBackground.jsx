@@ -1,42 +1,56 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-// import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import { loadSlim } from "@tsparticles/slim";
+
+const getIsDark = () => {
+  if (typeof window === "undefined") return true;
+  const root = document.documentElement;
+  const saved = localStorage.getItem("theme");
+  if (root.classList.contains("dark")) return true;
+  if (saved) return saved === "dark";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
 
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
+  const [isDark, setIsDark] = useState(getIsDark());
 
-  // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-      // starting from v2 you can add only the features you need reducing the bundle size
-      //await loadAll(engine);
-      //await loadFull(engine);
       await loadSlim(engine);
-      //await loadBasic(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    }).then(() => setInit(true));
   }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
+  useEffect(() => {
+    const apply = () => setIsDark(getIsDark());
+
+    window.addEventListener("themechange", apply);
+
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    mq.addEventListener?.("change", apply);
+
+    const obs = new MutationObserver(apply);
+    obs.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => {
+      window.removeEventListener("themechange", apply);
+      mq.removeEventListener?.("change", apply);
+      obs.disconnect();
+    };
+  }, []);
 
   const options = useMemo(
     () => ({
-      background: {
-        color: {
-          value: "#000101",
-        },
-      },
+      background: { color: { value: "transparent" } },
       fpsLimit: 60,
+      detectRetina: true,
       particles: {
-        color: { value: ["#fefefe", "#00a8f1"] },
+        color: {
+          value: isDark ? ["#ffffff", "#00a8f1"] : ["#334155", "#00a8f1"],
+        },
         move: {
           direction: "none",
           enable: true,
@@ -45,53 +59,26 @@ const ParticlesBackground = () => {
           speed: 2,
           straight: false,
         },
-        number: {
-          density: {
-            enable: true,
-            area: 800,
-          },
-          value: 80,
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 1, max: 5 },
-        },
-        detectRetina: true,
-        opacity: {
-          value: 0.4,
-        },
+        number: { density: { enable: true, area: 800 }, value: 80 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 5 } },
+        opacity: { value: isDark ? 0.4 : 0.35 },
       },
     }),
-    []
+    [isDark]
   );
 
-  if (init) {
-    return (
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <Particles
-          id="tsparticles"
-          particlesLoaded={particlesLoaded}
-          options={options}
-        />
-      </div>
-    );
-  }
+  if (!init) return null;
 
-  return <></>;
+  return (
+    <div className="fixed inset-0 z-0 pointer-events-none">
+      <Particles
+        id="tsparticles"
+        options={options}
+        key={isDark ? "dark" : "light"}
+      />
+    </div>
+  );
 };
 
 export default ParticlesBackground;
-
-{
-  /* <video
-          className="w-full mt-5 rounded-2xl shadow-lg"
-          autoPlay
-          muted
-          loop
-        >
-          <source src="/money.mp4" type="video/mp4" />
-          Tvůj prohlížeč nepodporuje video tag...
-        </video> */
-}

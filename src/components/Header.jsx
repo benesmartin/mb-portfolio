@@ -1,23 +1,46 @@
-import { Menu, Moon, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { useState, useEffect } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
+function useTheme() {
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved; // 'light' | 'dark'
+    // fall back to OS preference:
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "dark") root.classList.add("dark");
+    else root.classList.remove("dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  return { theme, setTheme };
+}
+
 const Header = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  const { theme, setTheme } = useTheme();
 
   const { t, i18n } = useTranslation();
   const lang = i18n.resolvedLanguage || i18n.language;
   const nextLang = lang === "en" ? "cs" : "en";
   const flagCode = nextLang === "en" ? "GB" : "CZ";
+
   return (
     <>
       <motion.header
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="sticky top-4 z-20 cal-sans-regular mt-4 bg-[#1c1c1c73] p-2 rounded-xl text-white border-2 border-[#1c1c1c] frosted"
+        className="sticky top-4 z-20 cal-sans-regular mt-4 bg-[var(--card)] p-2 rounded-xl text-[var(--text)] border-2 border-[var(--border)] frosted"
       >
         <nav className="flex items-center">
           <div className="flex items-center mr-auto">
@@ -25,15 +48,15 @@ const Header = () => {
               src="/logo.png"
               alt="Martin Beneš logo"
               width={48}
-              className="rounded-md border-2 border-[#1c1c1c]"
+              className="rounded-md border-2 border-[var(--border)]"
             />
             <h1 className="ml-4 text-xl">Martin Beneš</h1>
           </div>
-          <ul className="md:flex hidden justify-evenly w-auto gap-x-8 mr-5 text-gray-100 ">
+          <ul className="md:flex hidden justify-evenly w-auto gap-x-8 mr-5 text-[var(--muted-more)]">
             <li>
               <a
                 href="#home"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
               >
                 {t("home")}
               </a>
@@ -41,7 +64,7 @@ const Header = () => {
             <li>
               <a
                 href="#about"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
               >
                 {t("about")}
               </a>
@@ -49,7 +72,7 @@ const Header = () => {
             <li>
               <a
                 href="#experience"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
               >
                 {t("experience.title")}
               </a>
@@ -57,7 +80,7 @@ const Header = () => {
             <li>
               <a
                 href="#projects"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
               >
                 {t("projects.title")}
               </a>
@@ -65,7 +88,7 @@ const Header = () => {
             <li>
               <a
                 href="#contact"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
               >
                 {t("contact.title")}
               </a>
@@ -73,12 +96,16 @@ const Header = () => {
           </ul>
           <ul className="md:flex hidden justify-evenly items-center w-auto mr-2">
             <li>
-              <button className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-white hover:cursor-pointer transition-all duration-200">
-                <Moon size={24} />
+              <button
+                className="w-8 h-8 flex items-center justify-center text-[var(--muted-more)] hover:text-[var(--text)] transition-colors hover:cursor-pointer"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                title={theme === "dark" ? t("lightMode") : t("darkMode")}
+              >
+                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
               </button>
             </li>
             <li>
-              <span className="text-gray-300">|</span>
+              <span className="text-[var(--muted)]">|</span>
             </li>
             <li>
               <button
@@ -102,7 +129,7 @@ const Header = () => {
             </li>
           </ul>
           <button
-            className="md:hidden w-8 h-8 flex items-center justify-center transition-transform duration-200 text-gray-400"
+            className="md:hidden w-8 h-8 flex items-center justify-center transition-transform duration-200 text-[var(--muted)]"
             onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
           >
             {isMobileNavOpen ? (
@@ -121,18 +148,18 @@ const Header = () => {
             fixed inset-x-4 md:hidden
             z-[100]
             cal-sans-regular
-            bg-[#1c1c1c73] p-2 rounded-xl text-white
-            border-2 border-[#1c1c1c] frosted
+            bg-[var(--card)] p-2 rounded-xl text-[var(--text)]
+            border-2 border-[var(--border)] frosted
           "
           style={{
             top: "calc(6.25rem + env(safe-area-inset-top))",
           }}
         >
-          <ul className="flex flex-col justify-center items-center w-auto gap-y-4 text-gray-100">
+          <ul className="flex flex-col justify-center items-center w-auto gap-y-4 text-[var(--muted-more)]">
             <li>
               <a
                 href="#home"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200 w-100"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200 w-100"
                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("home")}
@@ -141,7 +168,7 @@ const Header = () => {
             <li>
               <a
                 href="#about"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("about")}
@@ -150,7 +177,7 @@ const Header = () => {
             <li>
               <a
                 href="#experience"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("experience.title")}
@@ -159,7 +186,7 @@ const Header = () => {
             <li>
               <a
                 href="#projects"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("projects.title")}
@@ -168,7 +195,7 @@ const Header = () => {
             <li>
               <a
                 href="#contact"
-                className="hover:text-[#00a8f1] hover:cursor-pointer transition-all duration-200"
+                className="hover:text-[var(--accent)] hover:cursor-pointer transition-all duration-200"
                 onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
               >
                 {t("contact.title")}
@@ -177,12 +204,16 @@ const Header = () => {
           </ul>
           <ul className="flex justify-evenly items-center w-auto">
             <li>
-              <button className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-white hover:cursor-pointer transition-all duration-200">
-                <Moon size={24} />
+              <button
+                className="w-8 h-8 flex items-center justify-center text-[var(--muted-more)] hover:text-[var(--text)] transition-colors hover:cursor-pointer"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                title={theme === "dark" ? t("lightMode") : t("darkMode")}
+              >
+                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
               </button>
             </li>
             <li>
-              <span className="text-gray-300">|</span>
+              <span className="text-[var(--muted)]">|</span>
             </li>
             <li>
               <button

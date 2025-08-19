@@ -35,6 +35,38 @@
   scroll-padding-top: calc(6.25rem + env(safe-area-inset-top));
 }
 
-html {
-  background: #000;
+:root {
+  --bg: #f7f7f8;
+  --bg-hover: #dad9d9;
+
+  --card: rgba(255,255,255,0.75);
+  --card-solid: #ffffff;
+  --border: #e4e4e7;
+
+  --text: #111827;
+  --muted: #4b5563;
+  --muted-more: #6b7280;
+
+  --accent: #00a8f1;
+
+  --card-alpha: rgba(255,255,255,0.75);
 }
+
+html.dark {
+  --bg: #000000;
+  --bg-hover: #292929;
+
+  --card: rgba(28,28,28,0.45);
+  --card-solid: #1c1c1c;
+  --border: #1c1c1c;
+
+  --text: #ffffff;
+  --muted: #9ca3af;
+  --muted-more: #d1d5db;
+
+  --accent: #00a8f1;
+
+  --card-alpha: rgba(28,28,28,0.45);
+}
+
+html { background: var(--bg); color-scheme: light dark; }

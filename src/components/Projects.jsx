@@ -70,9 +70,9 @@ const Projects = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mt-16 mb-8 bg-[#1c1c1c73] p-6 rounded-xl text-white border-2 border-[#1c1c1c] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
+      className="mt-16 mb-8 bg-[var(--card)] p-6 rounded-xl text-[var(--text)] border-2 border-[var(--border)] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
     >
-      <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[#00a8f1]">
+      <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[var(--accent)]">
         {t("projects.title")}
       </h2>
 
@@ -91,7 +91,7 @@ const Projects = () => {
               variants={item}
               exit="exit"
               layout
-              className="rounded-xl border-2 border-[#1c1c1c] bg-white/5 overflow-hidden flex flex-col"
+              className="rounded-xl border-2 border-[var(--border)] bg-[var(--bg)] overflow-hidden flex flex-col"
             >
               <div className="relative">
                 <img
@@ -101,7 +101,7 @@ const Projects = () => {
                   loading="lazy"
                 />
                 {p.featured && (
-                  <span className="absolute left-3 top-3 rounded-full bg-[#00a8f1]/90 px-2 py-0.5 text-xs font-medium">
+                  <span className="absolute left-3 top-3 rounded-full bg-[var(--accent)]/90 px-2 py-0.5 text-xs font-medium text-white">
                     {t("projects.featured")}
                   </span>
                 )}
@@ -109,14 +109,14 @@ const Projects = () => {
 
               <div className="p-4 flex flex-col gap-3">
                 <h3 className="text-lg font-semibold">{t(p.titleKey)}</h3>
-                <h4 className="text-sm text-gray-400">{p.year}</h4>
-                <p className="text-sm text-gray-300">{t(p.descKey)}</p>
+                <h4 className="text-sm text-[var(--muted-more)]">{p.year}</h4>
+                <p className="text-sm text-[var(--muted)]">{t(p.descKey)}</p>
 
                 <div className="mt-1 flex flex-wrap gap-2">
                   {p.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs text-gray-200 px-2 py-1 rounded-md border-2 border-[#1c1c1c] bg-white/5"
+                      className="text-xs text-[var(--muted)] px-2 py-1 rounded-md border-2 border-[var(--border)] bg-[var(--bg)]"
                     >
                       {tag}
                     </span>
@@ -129,10 +129,10 @@ const Projects = () => {
                       href={p.links.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border-2 border-[#1c1c1c] bg-white/5 hover:bg-white/10 transition-colors"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border-2 border-[var(--border)] bg-[var(--bg)] hover:bg-[var(--bg-hover)]/80 transition-colors"
                       aria-label={t("projects.viewDemo")}
                     >
-                      <Globe size={16} className="text-[#00a8f1]" />
+                      <Globe size={16} className="text-[var(--accent)]" />
                       <span className="text-sm">{t("projects.view-demo")}</span>
                     </a>
                   )}
@@ -141,10 +141,10 @@ const Projects = () => {
                       href={p.links.code}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border-2 border-[#1c1c1c] bg-white/5 hover:bg-white/10 transition-colors"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border-2 border-[var(--border)] bg-[var(--bg)] hover:bg-[var(--bg-hover)]/80 transition-colors"
                       aria-label={t("projects.viewCode")}
                     >
-                      <Github size={16} className="text-[#00a8f1]" />
+                      <Github size={16} className="text-[var(--accent)]" />
                       <span className="text-sm">{t("projects.view-code")}</span>
                     </a>
                   )}
@@ -155,14 +155,14 @@ const Projects = () => {
         </AnimatePresence>
       </motion.div>
 
-      <div className="mt-6 text-center text-gray-300">
+      <div className="mt-6 text-center text-[var(--text)]">
         <a
           href="https://github.com/benesmartin"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-[#1c1c1c] bg-white/5 hover:bg-white/10 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-[var(--border)] bg-[var(--bg)] hover:bg-[var(--bg-hover)]/80 transition-colors"
         >
-          <ExternalLink size={16} className="text-[#00a8f1]" />
+          <ExternalLink size={16} className="text-[var(--accent)]" />
           {t("projects.more-on-github")}
         </a>
       </div>

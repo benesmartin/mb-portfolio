@@ -131,5 +131,7 @@
     "backToTop": "Zpět na začátek"
   },
   "last_commit_date": "Poslední commit",
-  "loading": "Načítání..."
+  "loading": "Načítání...",
+  "lightMode": "Světlý režim",
+  "darkMode": "Tmavý režim"
 }

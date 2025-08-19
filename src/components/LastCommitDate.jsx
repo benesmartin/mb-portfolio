@@ -23,9 +23,9 @@ const LastCommitDate = () => {
       href="https://github.com/benesmartin/mb-portfolio/commits"
       target="_blank"
       rel="noopener noreferrer"
-      className="*:hover:text-[#00a8f1] *:duration-200"
+      className="*:hover:text-[var(--accent)] *:duration-200"
     >
-      <div className="text-gray-400 text-xs mt-2 flex items-center">
+      <div className="text-[var(--muted-more)] text-xs mt-2 flex items-center">
         <Github size={16} className="inline mr-1" /> {t("last_commit_date")}:{" "}
         {date || t("loading")}
       </div>

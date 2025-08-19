@@ -80,20 +80,17 @@ export default function Experience() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mt-16 mb-8 bg-[#1c1c1c73] p-6 rounded-xl text-white border-2 border-[#1c1c1c] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
+      className="mt-16 mb-8 bg-[var(--card)] p-6 rounded-xl text-[var(--text)] border-2 border-[var(--border)] backdrop-blur z-10 relative scroll-mt-[calc(env(safe-area-inset-top))]"
     >
-      <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[#00a8f1]">
+      <h2 className="text-3xl font-bold mb-6 underline decoration-4 underline-offset-4 decoration-[var(--accent)]">
         {t("experience.title")}
       </h2>
 
       <div
         role="group"
-        aria-label={t("experience-tabs-label", {
-          defaultValue: "Experience sections",
-        })}
         className="
           flex flex-wrap justify-center gap-2 p-1
-          rounded-xl border-2 border-[#1c1c1c] bg-white/5
+          rounded-xl border-2 border-[var(--border)] bg-[var(--bg)]
         "
       >
         {[
@@ -111,8 +108,8 @@ export default function Experience() {
               className={`min-h-[44px] px-4 py-2 rounded-lg outline-none transition-all cursor-pointer
           ${
             selected
-              ? "text-white bg-white/10 border-2 border-[#1c1c1c]"
-              : "text-gray-300 hover:text-white border-2 border-transparent"
+              ? "text-[var(--text)] bg-[var(--card)] border-2 border-[var(--border)]"
+              : "text-[var(--muted)] hover:text-[var(--text)] border-2 border-transparent"
           }`}
             >
               <span className="inline-flex items-center gap-2">
@@ -125,13 +122,8 @@ export default function Experience() {
       </div>
 
       <div className="mt-6">
-        <div
-          id="panel-work"
-          role="tabpanel"
-          aria-labelledby="tab-work"
-          hidden={active !== "work"}
-        >
-          <ol className="relative border-l-2 border-white/15 ml-3 space-y-8">
+        <div id="panel-work" role="tabpanel" hidden={active !== "work"}>
+          <ol className="relative border-l-2 border-[var(--muted)] ml-3 space-y-8">
             {[
               {
                 company: "UJEP, CIT",
@@ -190,44 +182,42 @@ export default function Experience() {
                     />
                   )}
                   <span
-                    className={`relative block h-4 w-4 rounded-full border-2 border-[#1c1c1c] ${
+                    className={`relative block h-4 w-4 rounded-full border-2 border-[var(--border)] ${
                       item.active ? "bg-green-500" : "bg-red-500/50"
                     }`}
                   />
                 </span>
-                <div className="flex items-center gap-3 text-sm text-gray-400">
+                <div className="flex items-center gap-3 text-sm text-[var(--muted)]">
                   {(() => {
                     const Icon = item.icon ?? Briefcase;
                     return (
-                      <Icon size={16} className="shrink-0 text-[#00a8f1]" />
+                      <Icon
+                        size={16}
+                        className="shrink-0 text-[var(--accent)]"
+                      />
                     );
                   })()}
                   <span>{item.period}</span>
                 </div>
                 <h3 className="mt-1 text-xl font-semibold">{item.title}</h3>
 
-                <h4 className="text-sm font-semibold text-gray-200">
+                <h4 className="text-sm font-semibold text-[var(--muted-more)]">
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-[#00a8f1] transition-colors duration-200"
+                    className="flex items-center gap-2 hover:text-[var(--accent)] transition-colors duration-200"
                   >
                     {item.company}
                   </a>
                 </h4>
-                <p className="mt-1 text-gray-300">{item.desc}</p>
+                <p className="mt-1 text-[var(--muted)]">{item.desc}</p>
               </motion.li>
             ))}
           </ol>
         </div>
 
-        <div
-          id="panel-soft"
-          role="tabpanel"
-          aria-labelledby="tab-soft"
-          hidden={active !== "soft"}
-        >
+        <div id="panel-soft" role="tabpanel" hidden={active !== "soft"}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-1">
             {[
               {
@@ -271,18 +261,20 @@ export default function Experience() {
                   ease: "easeOut",
                   delay: i * 0.04,
                 }}
-                className="rounded-xl border-2 border-[#1c1c1c] bg-white/5 p-4"
+                className="rounded-xl border-2 border-[var(--border)] bg-[var(--bg)] p-4"
               >
                 <div className="flex items-start gap-3">
                   <Icon
                     size={20}
                     absoluteStrokeWidth={true}
-                    className="mt-0.5 text-[#00a8f1] shrink-0"
+                    className="mt-0.5 text-[var(--accent)] shrink-0"
                     aria-hidden
                   />
                   <div>
-                    <div className="text-gray-100 font-medium">{title}</div>
-                    <p className="text-sm text-gray-300 mt-1">{proof}</p>
+                    <div className="text-[var(--text)] font-medium">
+                      {title}
+                    </div>
+                    <p className="text-sm text-[var(--muted)] mt-1">{proof}</p>
                   </div>
                 </div>
               </motion.div>
@@ -303,15 +295,15 @@ export default function Experience() {
                   ease: "easeOut",
                   delay: bi * 0.05,
                 }}
-                className="rounded-xl border-2 border-[#1c1c1c] bg-white/5 p-4"
+                className="rounded-xl border-2 border-[var(--border)] bg-[var(--bg)] p-4"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <bucket.icon
                     size={18}
-                    className="text-[#00a8f1]"
+                    className="text-[var(--accent)]"
                     aria-hidden
                   />
-                  <div className="text-gray-200 font-semibold">
+                  <div className="text-[var(--text)] font-semibold">
                     {bucket.group}
                   </div>
                 </div>
@@ -320,7 +312,7 @@ export default function Experience() {
                   {bucket.items.map((label) => (
                     <span
                       key={label}
-                      className="text-sm text-gray-200 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border-2 border-[#1c1c1c] bg-white/5 whitespace-nowrap"
+                      className="text-sm text-[var(--muted)] inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border-2 border-[var(--border)] bg-[var(--card)] whitespace-nowrap"
                     >
                       {label}
                     </span>
