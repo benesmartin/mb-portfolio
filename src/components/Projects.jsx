@@ -25,7 +25,7 @@ const projects = [
     tags: ["React", "Tailwind", "UX", "QR"],
     links: {
       demo: "https://pay.wmb.cz",
-      code: "https://github.com/benesmartin/tbd",
+      code: "https://github.com/benesmartin/wmb-pay",
     },
   },
   {
