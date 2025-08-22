@@ -12,7 +12,7 @@ const projects = [
     tags: ["HTML/CSS/JS", "Pixel-art", "Vanilla JS"],
     links: {
       demo: "https://nm.martinben.es",
-      code: "https://github.com/benesmartin/tbd",
+      code: "https://github.com/benesmartin/necromancers-mystery",
     },
     featured: true,
   },
